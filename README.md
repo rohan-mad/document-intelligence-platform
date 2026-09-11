@@ -459,14 +459,23 @@ sample_outputs/
 
 ## Deployment
 
-The deployed application should expose:
+The application is deployed publicly on Render.
 
-```text
-Frontend URL
-Backend API URL
-Swagger URL: /docs
-Health URL: /api/v1/health
-```
+### Frontend
+
+https://document-intelligence-platform-hsvm.onrender.com/
+
+### Backend API
+
+https://document-intelligence-platform-hsvm.onrender.com/
+
+### Swagger / OpenAPI
+
+https://document-intelligence-platform-hsvm.onrender.com/docs
+
+### Health Check
+
+https://document-intelligence-platform-hsvm.onrender.com/api/v1/health
 
 Environment variables should be configured through the deployment platform rather than committed to the repository.
 
