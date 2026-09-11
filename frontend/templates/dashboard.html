@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document Intelligence Platform</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <header class="header">
+        <h1>Document Intelligence Platform</h1>
+        <p>
+            AI-powered financial document extraction and validation
+        </p>
+    </header>
+
+
+    <!-- UPLOAD SECTION -->
+    <section class="card">
+
+        <h2>Process a Document</h2>
+
+        <div class="form-group">
+
+            <label for="documentType">
+                Document Type
+            </label>
+
+            <select id="documentType">
+
+                <option value="invoice">
+                    Invoice
+                </option>
+
+                <option value="balance_sheet">
+                    Balance Sheet
+                </option>
+
+                <option value="profit_and_loss">
+                    Profit & Loss
+                </option>
+
+                <option value="cash_flow_statement">
+                    Cash Flow Statement
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="fileInput">
+                Upload Document
+            </label>
+
+            <input
+                type="file"
+                id="fileInput"
+                accept=".pdf,.jpg,.jpeg,.png"
+            >
+
+            <small>
+                Supported: PDF, JPG, JPEG, PNG
+            </small>
+
+        </div>
+
+
+        <button
+            id="processButton"
+            onclick="processDocument()"
+        >
+            Process Document
+        </button>
+
+
+        <div id="message"></div>
+
+    </section>
+
+
+    <!-- DOCUMENT DASHBOARD -->
+    <section class="card">
+
+        <div class="section-header">
+
+            <h2>Processed Documents</h2>
+
+            <button
+                class="secondary-button"
+                onclick="loadDocuments()"
+            >
+                Refresh
+            </button>
+
+        </div>
+
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Document</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                        <th>Processed At</th>
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="documentsTable">
+
+                    <tr>
+                        <td colspan="4">
+                            Loading documents...
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- RESULT SECTION -->
+    <section
+        id="resultSection"
+        class="card hidden"
+    >
+
+        <h2>Document Result</h2>
+
+
+        <div id="resultContent"></div>
+
+
+        <!-- RAW JSON -->
+        <div class="raw-section">
+
+            <h3>Raw JSON</h3>
+
+            <pre id="rawJson"></pre>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<script src="/static/app.js"></script>
+
+</body>
+</html>
