@@ -1,3 +1,4 @@
+import os
 from io import BytesIO
 
 import fitz
@@ -7,9 +8,14 @@ from pytesseract import Output
 
 
 # Windows Tesseract installation
-pytesseract.pytesseract.tesseract_cmd = (
-    r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-)
+
+
+if os.name == "nt":
+    pytesseract.pytesseract.tesseract_cmd = (
+        r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+    )
+else:
+    pytesseract.pytesseract.tesseract_cmd = "tesseract"
 
 
 def extract_page_with_ocr(image: Image.Image) -> str:
