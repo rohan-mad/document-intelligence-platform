@@ -40,7 +40,7 @@ router = APIRouter(
 
 
 @router.post("/process")
-async def process_document(
+def process_document(
     file: UploadFile = File(...),
     document_type: str = Form(...),
     db: Session = Depends(get_db)
@@ -85,7 +85,7 @@ async def process_document(
             }
         )
 
-    content = await file.read()
+    content = file.file.read()
 
     validation = validate_document(
         filename=file.filename,
